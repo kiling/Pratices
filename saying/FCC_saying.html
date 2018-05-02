@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FCC Project -- Build a Random Quote Machine</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0 10%;
+        }
+        h3 {
+            text-align: center;
+            color: #333;
+        }
+        blockquote {
+            border: 1px #eee solid;
+            border-left: 3px solid #6cf;
+            padding: 20px;
+            background: #eee;
+            position: relative;
+        }
+        div.r {
+            text-align: right;
+        }
+        button {
+            width: fit-content;
+            position: absolute;
+            background: #35B0AB;
+            border: none;
+            cursor: pointer;
+            left: 0;
+            bottom: 0;
+            padding: 5px;
+            outline: none;
+            /*box-shadow: 1px 1px #781;*/
+        }
+        p.attention {
+            text-indent: 40px;
+            color: #d9534f;
+        }
+        a:link,
+        a:visited {
+            color: #3071a9;
+        }
+    </style>
+</head>
+<body>
+    <h3>FCC Project -- Build a Random Quote Machine<a href="https://freecodecamp.cn/challenges/build-a-random-quote-machine" target="_blank">...</a></h3>
+    <blockquote>
+        <button id="refresh">Refresh</button>
+        <p id="saying">&nbsp;</p>
+        <div class="r">
+            <cite id="author">&nbsp;</cite>
+        </div>
+    </blockquote>
+    <p class="attention">注: 这里使用的是 <a href="https://hitokoto.cn/api" target="_blank">一言</a> API, 具体接口点击链接查看</p>
+
+    <!-- script -->
+    <script src="script.js"></script>
+</body>
+</html>
