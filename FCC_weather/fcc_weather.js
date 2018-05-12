@@ -2,8 +2,9 @@
  * Created by msi on 2018/5/7.
  */
 
+console.log('js file working test');
 
-window.onload = function () {
+// window.onload = function () {
 
     let city = document.getElementById('city'); //
     let currentCity = document.getElementById('current-city');
@@ -34,7 +35,7 @@ window.onload = function () {
         });
     });
     // city.innerText = loc;
-};
+// };
 
 let now = new Date();
 
