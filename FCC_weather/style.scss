@@ -1,0 +1,98 @@
+@charset "utf-8";
+html {
+  height: 100%;
+}
+body {
+  display: flex;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Microsoft YaHei";
+  --huge-size-font: 26px;
+  background-size: cover;
+  padding-top: 40px;
+  position: relative;
+  height: 100%;
+  box-sizing: border-box;
+  div.weather-display {
+    display: flex;
+    flex-direction: column;
+    div.today {
+      display: flex;
+      flex-direction: row;
+      //background: #00BCD4;
+      background: #253751;
+      color: #fff;
+      align-items: center;
+      .col {
+        width: 33%;
+        &:not(:first-child) {
+          padding: 0 5px;
+          box-sizing: border-box;
+        }
+      }
+      #current-city {
+        font-size: var(--huge-size-font);
+        #current-tem {
+          font-size: var(--huge-size-font);
+          margin-left: 5px;
+          &::after {
+            content: '℃';
+            font-size: 20px;
+            vertical-align: 30%;
+          }
+        }
+      }
+      p {
+        margin: 5px;
+      }
+    }
+    div.more-day {
+      >* + * {
+        //border-left: 1px solid #fff;
+      }
+      div[class^='day'] {
+        padding: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 25%;
+        &.day1 {
+          color: #80deea;
+        }
+        &:not(:first-child):hover {
+          background: #3949ab;
+        }
+      }
+      display: flex;
+      background: #3F51B5;
+      color: #fff;
+    }
+  }
+  div.bg {
+    background: url("weather.jpg");
+    position: absolute;
+    filter: blur(3px);
+    left: 0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -2;
+  }
+  h2.title {
+    color: #1ab394;
+  }
+  table {
+    border-collapse: collapse;
+    border-color: #000;
+    background-color: rgba(255, 255, 255, 0.5);
+    td {
+      border-color: #000;
+      padding: 3px;
+    }
+  }
+  p.attention {
+    color: #FF8A65;
+  }
+}
