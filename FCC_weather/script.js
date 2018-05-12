@@ -6,6 +6,7 @@
 window.onload = function () {
 
     let city = document.getElementById('city'); //
+    let currentCity = document.getElementById('current-city');
     // let xhr = new XMLHttpRequest();
     // xhr.open('get', 'http://ip-api.com/json');
     // xhr.open('get', 'http://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG');
@@ -23,6 +24,7 @@ window.onload = function () {
     getLocation().then(function (loc) {
         let tmp = JSON.parse(loc)['content']['address_detail']['city'];
         city.innerText = JSON.parse(loc)['content']['address_detail']['province'] + JSON.parse(loc)['content']['address_detail']['city'];
+        currentCity.innerText = '' + JSON.parse(loc)['content']['address_detail']['city'];
         console.log('test:' + tmp);
         getWeather(tmp).then(function (json) {
             weatherRender(json);
