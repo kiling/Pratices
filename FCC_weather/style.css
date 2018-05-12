@@ -28,12 +28,12 @@ body {
         body div.weather-display div.today .col:not(:first-child) {
           padding: 0 5px;
           box-sizing: border-box; }
-      body div.weather-display div.today #current-city {
+      body div.weather-display div.today .current-display {
         font-size: var(--huge-size-font); }
-        body div.weather-display div.today #current-city #current-tem {
+        body div.weather-display div.today .current-display #current-tem {
           font-size: var(--huge-size-font);
           margin-left: 5px; }
-          body div.weather-display div.today #current-city #current-tem::after {
+          body div.weather-display div.today .current-display #current-tem::after {
             content: '℃';
             font-size: 20px;
             vertical-align: 30%; }
