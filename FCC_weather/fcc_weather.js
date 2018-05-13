@@ -30,10 +30,10 @@ let loc;
     //     currentCity.innerText = '' + json['content']['address_detail']['city'];
     //     console.log('test:' + tmp);
 
-        getWeather(tmp).then(function (ajson) {
+        getWeather().then(function (ajson) {
             weatherRender(ajson);
         });
-        getCurrentWeather(tmp).then(function (bjson) {
+        getCurrentWeather().then(function (bjson) {
             currentWeatherRender(bjson);
         });
     // });
