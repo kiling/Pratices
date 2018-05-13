@@ -37,6 +37,13 @@ console.log('js file working test');
     // city.innerText = loc;
 // };
 
+// jsonp test
+let jsonpScript= document.createElement("script");
+jsonpScript.type = "text/javascript";
+jsonpScript.src = "https://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG&callback=dataop";
+document.getElementsByTagName("head")[0].appendChild(jsonpScript);
+// jsonp test end
+
 let now = new Date();
 
 function getLocation() {
@@ -159,4 +166,9 @@ function currentWeatherRender(json) {
     fl.textContent = '体感温度：' + json['HeWeather6'][0]['now']['fl'] + '℃';
     rh.textContent = '相对湿度：' + json['HeWeather6'][0]['now']['hum'] + '%';
     console.log(json['HeWeather6'][0]['now']['cond_txt']);
+}
+
+// jsonp
+function dataop(data) {
+    console.log(data);
 }
