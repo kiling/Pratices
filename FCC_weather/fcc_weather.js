@@ -69,6 +69,7 @@ function getLocation() {
         xhr.onerror = function () {
             reject(new Error(xhr.statusText));
         };
+        xhr.setRequestHeader('Access-Control-Allow-Origin', '*')
         xhr.send();
     });
 }
