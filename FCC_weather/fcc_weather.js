@@ -167,6 +167,7 @@ function getCurrentWeather() {
 }
 
 function currentWeatherRender(json) {
+    console.log(json);
     let tmp = document.getElementById('current-tem'),
         weather = document.getElementById('current-weather'),
         fl = document.getElementById('current-feel'),
@@ -175,8 +176,7 @@ function currentWeatherRender(json) {
     weather.textContent = json['HeWeather6'][0]['now']['cond_txt'];
     fl.textContent = '体感温度：' + json['HeWeather6'][0]['now']['fl'] + '℃';
     rh.textContent = '相对湿度：' + json['HeWeather6'][0]['now']['hum'] + '%';
-    currentCity.textContent = json['HeWeather6']['basic ']['admin_area'];
-    console.log(json);
+    currentCity.textContent = json['HeWeather6']['basic']['admin_area'];
 }
 
 // jsonp
