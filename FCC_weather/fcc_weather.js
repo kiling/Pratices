@@ -49,7 +49,7 @@ let loc;
 let now = new Date();
 
 function getLocation() {
-    // return new Promise(function (resolve, reject) {
+    return new Promise(function (resolve, reject) {
         // let xhr = new XMLHttpRequest();
         // let text;
         // // xhr.open('get', 'http://ip-api.com/json');
@@ -77,7 +77,8 @@ function getLocation() {
         jsonpScript.type = "text/javascript";
         jsonpScript.src = "https://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG&callback=dataop";
         document.getElementsByTagName("head")[0].appendChild(jsonpScript);
-    // });
+        resolve();
+    });
 }
 
 function getWeather(loc) {
