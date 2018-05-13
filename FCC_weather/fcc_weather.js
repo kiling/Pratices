@@ -23,6 +23,7 @@ let loc;
     // };
     // xhr.send();
     getLocation().then(function () {
+        console.log(loc);
         let json = loc;
         let tmp = json['content']['address_detail']['city'];
         city.innerText = json['content']['address_detail']['province'] + json['content']['address_detail']['city'];
