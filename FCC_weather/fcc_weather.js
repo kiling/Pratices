@@ -3,7 +3,7 @@
  */
 
 console.log('js file working test');
-
+let loc;
 // window.onload = function () {
 
     let city = document.getElementById('city'); //
@@ -22,17 +22,18 @@ console.log('js file working test');
     //     }
     // };
     // xhr.send();
-    getLocation().then(function (json) {
+    getLocation().then(function () {
+        let json = loc;
         let tmp = JSON.parse(json)['content']['address_detail']['city'];
         city.innerText = JSON.parse(json)['content']['address_detail']['province'] + JSON.parse(loc)['content']['address_detail']['city'];
         currentCity.innerText = '' + JSON.parse(json)['content']['address_detail']['city'];
         console.log('test:' + tmp);
 
-        getWeather(tmp).then(function (json) {
-            weatherRender(json);
+        getWeather(tmp).then(function (ajson) {
+            weatherRender(ajson);
         });
-        getCurrentWeather(tmp).then(function (json) {
-            currentWeatherRender(json);
+        getCurrentWeather(tmp).then(function (bjson) {
+            currentWeatherRender(bjson);
         });
     });
     // city.innerText = loc;
@@ -176,7 +177,8 @@ function currentWeatherRender(json) {
 
 // jsonp
 function dataop(data) {
-    return new Promise(function(resolve, reject) {
-        resolve(data);
-    });
+    // return new Promise(function(resolve, reject) {
+    //     resolve(data);
+    // });
+    loc = data;
 }
