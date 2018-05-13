@@ -22,13 +22,13 @@ let loc;
     //     }
     // };
     // xhr.send();
-    getLocation().then(function () {
-        console.log(loc);
-        let json = loc;
-        let tmp = json['content']['address_detail']['city'];
-        city.innerText = json['content']['address_detail']['province'] + json['content']['address_detail']['city'];
-        currentCity.innerText = '' + json['content']['address_detail']['city'];
-        console.log('test:' + tmp);
+    // getLocation().then(function () {
+    //     console.log(loc);
+    //     let json = loc;
+    //     let tmp = json['content']['address_detail']['city'];
+    //     city.innerText = json['content']['address_detail']['province'] + json['content']['address_detail']['city'];
+    //     currentCity.innerText = '' + json['content']['address_detail']['city'];
+    //     console.log('test:' + tmp);
 
         getWeather(tmp).then(function (ajson) {
             weatherRender(ajson);
@@ -36,7 +36,7 @@ let loc;
         getCurrentWeather(tmp).then(function (bjson) {
             currentWeatherRender(bjson);
         });
-    });
+    // });
     // city.innerText = loc;
 // };
 
@@ -82,9 +82,9 @@ function getLocation() {
     });
 }
 
-function getWeather(loc) {
+function getWeather() {
     return new Promise(function (resolve, reject) {
-        let url = 'https://free-api.heweather.com/s6/weather/forecast?location=' + loc + '&username=HE1701132252581116&t=1477455132&key=14bd0d96597247c993bdee06806d8bdc';
+        let url = 'https://free-api.heweather.com/s6/weather/forecast?location=auto_ip&username=HE1701132252581116&t=1477455132&key=14bd0d96597247c993bdee06806d8bdc';
         let xhr = new XMLHttpRequest();
         xhr.open('get', url);
         xhr.onreadystatechange = function () {
@@ -118,6 +118,7 @@ function weatherRender(json) {
         dayCount = document.getElementsByClassName('day-count');
 
     lastUpdate.innerText = json['HeWeather6'][0]['update']['loc'];
+    city.textContent = json['HeWeather6'][0]['location'];
     document.getElementById('tem-interval').textContent = json['HeWeather6'][0]['daily_forecast'][0]['tmp_min'] + '℃~' + json['HeWeather6'][0]['daily_forecast'][0]['tmp_max'] + '℃'
     // update today div
 
@@ -150,10 +151,10 @@ function getDayY(d) {
     }
 }
 
-function getCurrentWeather(loc) {
+function getCurrentWeather() {
     return new Promise(function (resolve, reject) {
         let xhr = new XMLHttpRequest();
-        xhr.open('get', 'https://free-api.heweather.com/s6/weather/now?location=' + loc + '&key=14bd0d96597247c993bdee06806d8bdc&t=1477455132');
+        xhr.open('get', 'https://free-api.heweather.com/s6/weather/now?location=auto_ip&key=14bd0d96597247c993bdee06806d8bdc&t=1477455132');
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 let data = JSON.parse(xhr.responseText);
@@ -174,7 +175,8 @@ function currentWeatherRender(json) {
     weather.textContent = json['HeWeather6'][0]['now']['cond_txt'];
     fl.textContent = '体感温度：' + json['HeWeather6'][0]['now']['fl'] + '℃';
     rh.textContent = '相对湿度：' + json['HeWeather6'][0]['now']['hum'] + '%';
-    console.log(json['HeWeather6'][0]['now']['cond_txt']);
+    currentCity.textContent = json['HeWeather6']['basic ']['admin_area'];
+    console.log(json);
 }
 
 // jsonp
