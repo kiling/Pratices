@@ -44,7 +44,7 @@ function getLocation() {
         let xhr = new XMLHttpRequest();
         let text;
         // xhr.open('get', 'http://ip-api.com/json');
-        xhr.open('get', 'https://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG');
+        xhr.open('get', 'https://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG&callback=?');
         xhr.onreadystatechange = function () {
             if (xhr.readyState === 4) {
                 let data = JSON.parse(xhr.responseText);
