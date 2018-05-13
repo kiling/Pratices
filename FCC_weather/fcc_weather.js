@@ -22,11 +22,12 @@ console.log('js file working test');
     //     }
     // };
     // xhr.send();
-    getLocation().then(function (loc) {
-        let tmp = JSON.parse(loc)['content']['address_detail']['city'];
-        city.innerText = JSON.parse(loc)['content']['address_detail']['province'] + JSON.parse(loc)['content']['address_detail']['city'];
-        currentCity.innerText = '' + JSON.parse(loc)['content']['address_detail']['city'];
+    getLocation().then(function (json) {
+        let tmp = JSON.parse(json)['content']['address_detail']['city'];
+        city.innerText = JSON.parse(json)['content']['address_detail']['province'] + JSON.parse(loc)['content']['address_detail']['city'];
+        currentCity.innerText = '' + JSON.parse(json)['content']['address_detail']['city'];
         console.log('test:' + tmp);
+
         getWeather(tmp).then(function (json) {
             weatherRender(json);
         });
@@ -38,40 +39,44 @@ console.log('js file working test');
 // };
 
 // jsonp test
-let jsonpScript= document.createElement("script");
-jsonpScript.type = "text/javascript";
-jsonpScript.src = "https://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG&callback=dataop";
-document.getElementsByTagName("head")[0].appendChild(jsonpScript);
+// let jsonpScript= document.createElement("script");
+// jsonpScript.type = "text/javascript";
+// jsonpScript.src = "https://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG&callback=dataop";
+// document.getElementsByTagName("head")[0].appendChild(jsonpScript);
 // jsonp test end
 
 let now = new Date();
 
 function getLocation() {
-    return new Promise(function (resolve, reject) {
-        let xhr = new XMLHttpRequest();
-        let text;
-        // xhr.open('get', 'http://ip-api.com/json');
-        xhr.open('get', 'https://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG&callback=?');
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                let data = JSON.parse(xhr.responseText);
-                text = data['content']['address_detail']['province'] + data['content']['address_detail']['city'];
-                console.log('ajax function:' + text);
-            }
-        };
-        xhr.onload = function () {
-            if (xhr.status === 200) {
-                resolve(xhr.responseText);
-            } else {
-                reject(new Error(xhr.statusText));
-            }
-        };
-        xhr.onerror = function () {
-            reject(new Error(xhr.statusText));
-        };
-        xhr.setRequestHeader('Access-Control-Allow-Origin', '*')
-        xhr.send();
-    });
+    // return new Promise(function (resolve, reject) {
+        // let xhr = new XMLHttpRequest();
+        // let text;
+        // // xhr.open('get', 'http://ip-api.com/json');
+        // xhr.open('get', 'https://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG&callback=dataop');
+        // xhr.onreadystatechange = function () {
+        //     if (xhr.readyState === 4) {
+        //         let data = JSON.parse(xhr.responseText);
+        //         text = data['content']['address_detail']['province'] + data['content']['address_detail']['city'];
+        //         console.log('ajax function:' + text);
+        //     }
+        // };
+        // xhr.onload = function () {
+        //     if (xhr.status === 200) {
+        //         resolve(xhr.responseText);
+        //     } else {
+        //         reject(new Error(xhr.statusText));
+        //     }
+        // };
+        // xhr.onerror = function () {
+        //     reject(new Error(xhr.statusText));
+        // };
+        // xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
+        // xhr.send();
+        let jsonpScript= document.createElement("script");
+        jsonpScript.type = "text/javascript";
+        jsonpScript.src = "https://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG&callback=dataop";
+        document.getElementsByTagName("head")[0].appendChild(jsonpScript);
+    // });
 }
 
 function getWeather(loc) {
@@ -171,5 +176,7 @@ function currentWeatherRender(json) {
 
 // jsonp
 function dataop(data) {
-    console.log(data);
+    return new Promise(function(resolve, reject) {
+        resolve(data);
+    });
 }
