@@ -24,9 +24,9 @@ let loc;
     // xhr.send();
     getLocation().then(function () {
         let json = loc;
-        let tmp = JSON.parse(json)['content']['address_detail']['city'];
-        city.innerText = JSON.parse(json)['content']['address_detail']['province'] + JSON.parse(loc)['content']['address_detail']['city'];
-        currentCity.innerText = '' + JSON.parse(json)['content']['address_detail']['city'];
+        let tmp = json['content']['address_detail']['city'];
+        city.innerText = json['content']['address_detail']['province'] + json['content']['address_detail']['city'];
+        currentCity.innerText = '' + json['content']['address_detail']['city'];
         console.log('test:' + tmp);
 
         getWeather(tmp).then(function (ajson) {
@@ -181,5 +181,6 @@ function dataop(data) {
     // return new Promise(function(resolve, reject) {
     //     resolve(data);
     // });
+    console.log(data);
     loc = data;
 }
