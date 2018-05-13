@@ -6,8 +6,6 @@ console.log('js file working test');
 let loc;
 // window.onload = function () {
 
-    let city = document.getElementById('city'); //
-    let currentCity = document.getElementById('current-city');
     // let xhr = new XMLHttpRequest();
     // xhr.open('get', 'http://ip-api.com/json');
     // xhr.open('get', 'http://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG');
@@ -90,14 +88,14 @@ function getWeather() {
         xhr.onreadystatechange = function () {
             if(xhr.readyState === 4) {
                 console.log(JSON.parse(xhr.responseText));
-                console.log('更新时间：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['update']['loc']);
-                console.log('降雨概率：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['pop'] + '%');
-                console.log('相对湿度：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['hum'] + '%');
-                console.log('白天天气：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['cond_txt_d']);
-                console.log('夜晚天气：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['cond_txt_n']);
-                console.log('相对湿度：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['hum'] + '%');
-                console.log('当天最低温度：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['tmp_min']);
-                console.log('当天最高温度：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['tmp_max']); // 数组下标 0/1/2 近 3 天天气预报
+                // console.log('更新时间：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['update']['loc']);
+                // console.log('降雨概率：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['pop'] + '%');
+                // console.log('相对湿度：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['hum'] + '%');
+                // console.log('白天天气：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['cond_txt_d']);
+                // console.log('夜晚天气：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['cond_txt_n']);
+                // console.log('相对湿度：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['hum'] + '%');
+                // console.log('当天最低温度：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['tmp_min']);
+                // console.log('当天最高温度：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['tmp_max']); // 数组下标 0/1/2 近 3 天天气预报
                 // 天气预报日期 JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['date']
                 resolve(JSON.parse(xhr.responseText));
             }
@@ -115,7 +113,8 @@ function weatherRender(json) {
         weather_day = document.getElementsByClassName('weather-day'),
         weather_night = document.getElementsByClassName('weather-night'),
         today = document.getElementById('today'),
-        dayCount = document.getElementsByClassName('day-count');
+        dayCount = document.getElementsByClassName('day-count'),
+        city = document.getElementById('city'); //
 
     lastUpdate.innerText = json['HeWeather6'][0]['update']['loc'];
     city.textContent = json['HeWeather6'][0]['location'];
@@ -171,12 +170,13 @@ function currentWeatherRender(json) {
     let tmp = document.getElementById('current-tem'),
         weather = document.getElementById('current-weather'),
         fl = document.getElementById('current-feel'),
-        rh = document.getElementById('current-hum');
+        rh = document.getElementById('current-hum'),
+        currentCity = document.getElementById('current-city');
     tmp.textContent = json['HeWeather6'][0]['now']['tmp'];
     weather.textContent = json['HeWeather6'][0]['now']['cond_txt'];
     fl.textContent = '体感温度：' + json['HeWeather6'][0]['now']['fl'] + '℃';
     rh.textContent = '相对湿度：' + json['HeWeather6'][0]['now']['hum'] + '%';
-    currentCity.textContent = json['HeWeather6']['basic']['admin_area'];
+    currentCity.textContent = json['HeWeather6'][0]['basic']['location'];
 }
 
 // jsonp
