@@ -1,102 +1,53 @@
-/**
- * Created by msi on 2018/5/7.
- */
 
-console.log('js file working test');
-let loc;
-// window.onload = function () {
+let weatherClassObj = { // 和风天气代码，用于给对应的天气添加对应的 class 实现显示对应的图标
+    '100': 'sunny',
+    '101': 'cloudy',
+    '102': 'few-clouds',
+    '103': 'partly-cloudy',
+    '104': 'overcast',
+    '300': 'shower-rain',
+    '301': 'heavy-shower-rain',
+    '302': 'thundershower',
+    '303': 'heavy-thunderstorm',
+    '304': 'hail',
+    '305': 'light-rain',
+    '306': 'moderate-rain',
+    '307': 'heavy-rain',
+    '308': 'extreme-rain',
+    '309': 'drizzle-rain',
+    '310': 'storm',
+    '311': 'heavy-storm',
+    '312': 'severe-storm',
+    '313': 'freezing-rain',
+    '400': 'light-snow',
+    '401': 'moderate-snow',
+    '402': 'heavy-snow',
+    '403': 'snowstorm',
+    '404': 'sleet',
+    '405': 'rain-and-snow',
+    '406': 'shower-snow',
+    '407': 'snow-flurry',
+    '500': 'mist',
+    '501': 'foggy',
+    '502': 'haze',
+    '503': 'sand',
+    '504': 'dust',
+    '507': 'duststorm',
+    '508': 'sandstorm'
+};
 
-    // let xhr = new XMLHttpRequest();
-    // xhr.open('get', 'http://ip-api.com/json');
-    // xhr.open('get', 'http://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG');
-    // xhr.onreadystatechange = function () {
-    //     if (xhr.readyState === 4) {
-    //         let data = JSON.parse(xhr.responseText);
-    //         console.log('ajax succeeded');
-    //         city.innerText = data['content']['address_detail']['province'] + data['content']['address_detail']['city'];
-    //         console.log(data);
-    //         console.log(data['content']['address_detail']['province']);
-    //         console.log(data['content']['address_detail']['city']);
-    //     }
-    // };
-    // xhr.send();
-    // getLocation().then(function () {
-    //     console.log(loc);
-    //     let json = loc;
-    //     let tmp = json['content']['address_detail']['city'];
-    //     city.innerText = json['content']['address_detail']['province'] + json['content']['address_detail']['city'];
-    //     currentCity.innerText = '' + json['content']['address_detail']['city'];
-    //     console.log('test:' + tmp);
+let btnRefresh = document.getElementById('refresh');
+btnRefresh.addEventListener('click', function () {
+   updateWeather();
+});
 
-        getWeather().then(function (ajson) {
-            weatherRender(ajson);
-        });
-        getCurrentWeather().then(function (bjson) {
-            currentWeatherRender(bjson);
-        });
-    // });
-    // city.innerText = loc;
-// };
-
-// jsonp test
-// let jsonpScript= document.createElement("script");
-// jsonpScript.type = "text/javascript";
-// jsonpScript.src = "https://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG&callback=dataop";
-// document.getElementsByTagName("head")[0].appendChild(jsonpScript);
-// jsonp test end
-
-let now = new Date();
-
-function getLocation() {
-    return new Promise(function (resolve, reject) {
-        // let xhr = new XMLHttpRequest();
-        // let text;
-        // // xhr.open('get', 'http://ip-api.com/json');
-        // xhr.open('get', 'https://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG&callback=dataop');
-        // xhr.onreadystatechange = function () {
-        //     if (xhr.readyState === 4) {
-        //         let data = JSON.parse(xhr.responseText);
-        //         text = data['content']['address_detail']['province'] + data['content']['address_detail']['city'];
-        //         console.log('ajax function:' + text);
-        //     }
-        // };
-        // xhr.onload = function () {
-        //     if (xhr.status === 200) {
-        //         resolve(xhr.responseText);
-        //     } else {
-        //         reject(new Error(xhr.statusText));
-        //     }
-        // };
-        // xhr.onerror = function () {
-        //     reject(new Error(xhr.statusText));
-        // };
-        // xhr.setRequestHeader('Access-Control-Allow-Origin', '*');
-        // xhr.send();
-        let jsonpScript= document.createElement("script");
-        jsonpScript.type = "text/javascript";
-        jsonpScript.src = "https://api.map.baidu.com/location/ip?ak=7XogNvoVnHZNDbhPnVjzCorO4ScPndbG&callback=dataop";
-        document.getElementsByTagName("head")[0].appendChild(jsonpScript);
-        resolve();
-    });
-}
-
-function getWeather() {
+function getWeather() { // 请求获取天气数据
     return new Promise(function (resolve, reject) {
         let url = 'https://free-api.heweather.com/s6/weather/forecast?location=auto_ip&username=HE1701132252581116&t=1477455132&key=14bd0d96597247c993bdee06806d8bdc';
         let xhr = new XMLHttpRequest();
         xhr.open('get', url);
         xhr.onreadystatechange = function () {
             if(xhr.readyState === 4) {
-                console.log(JSON.parse(xhr.responseText));
-                // console.log('更新时间：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['update']['loc']);
-                // console.log('降雨概率：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['pop'] + '%');
-                // console.log('相对湿度：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['hum'] + '%');
-                // console.log('白天天气：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['cond_txt_d']);
-                // console.log('夜晚天气：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['cond_txt_n']);
-                // console.log('相对湿度：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['hum'] + '%');
-                // console.log('当天最低温度：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['tmp_min']);
-                // console.log('当天最高温度：' + JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['tmp_max']); // 数组下标 0/1/2 近 3 天天气预报
-                // 天气预报日期 JSON.parse(xhr.responseText)['HeWeather6'][0]['daily_forecast'][0]['date']
                 resolve(JSON.parse(xhr.responseText));
             }
         };
@@ -104,7 +55,7 @@ function getWeather() {
     })
 }
 
-function weatherRender(json) {
+function weatherRender(json) { // 天气数据渲染到 DOM 中
     let lastUpdate = document.getElementById('last-update'),
         date = document.getElementsByClassName('w-date'),
         temperature = document.getElementsByClassName('temperature'),
@@ -114,15 +65,10 @@ function weatherRender(json) {
         weather_night = document.getElementsByClassName('weather-night'),
         today = document.getElementById('today'),
         dayCount = document.getElementsByClassName('day-count'),
-        city = document.getElementById('city'); //
+        now = new Date();
 
     lastUpdate.innerText = json['HeWeather6'][0]['update']['loc'];
-    city.textContent = json['HeWeather6'][0]['location'];
-    document.getElementById('tem-interval').textContent = json['HeWeather6'][0]['daily_forecast'][0]['tmp_min'] + '℃~' + json['HeWeather6'][0]['daily_forecast'][0]['tmp_max'] + '℃'
-    // update today div
-
-    //
-    for(let i = 0; i < date.length; i++) {
+    for(let i = 0; i < date.length; i++) { // 3 天天气数据渲染
         date[i].textContent = json['HeWeather6'][0]['daily_forecast'][i]['date'];
         temperature[i].innerText = json['HeWeather6'][0]['daily_forecast'][i]['tmp_min'] + '℃-' + json['HeWeather6'][0]['daily_forecast'][i]['tmp_max'] + '℃';
         rate[i].innerText = json['HeWeather6'][0]['daily_forecast'][i]['pop'] + '%';
@@ -134,6 +80,7 @@ function weatherRender(json) {
 }
 
 function getDayY(d) {
+    let now = new Date();
     if(d == now.getDay()) {
         return '今天';
     } else if(d == now.getDay() + 1) {
@@ -150,7 +97,7 @@ function getDayY(d) {
     }
 }
 
-function getCurrentWeather() {
+function getCurrentWeather() { // 实况天气数据获取
     return new Promise(function (resolve, reject) {
         let xhr = new XMLHttpRequest();
         xhr.open('get', 'https://free-api.heweather.com/s6/weather/now?location=auto_ip&key=14bd0d96597247c993bdee06806d8bdc&t=1477455132');
@@ -158,15 +105,13 @@ function getCurrentWeather() {
             if (xhr.readyState === 4) {
                 let data = JSON.parse(xhr.responseText);
                 resolve(data);
-                // console.log('getcurrent:' + data);
             }
         };
         xhr.send();
     });
 }
 
-function currentWeatherRender(json) {
-    console.log(json);
+function currentWeatherRender(json) { // 实况天气数据渲染
     let tmp = document.getElementById('current-tem'),
         weather = document.getElementById('current-weather'),
         fl = document.getElementById('current-feel'),
@@ -177,13 +122,38 @@ function currentWeatherRender(json) {
     fl.textContent = '体感温度：' + json['HeWeather6'][0]['now']['fl'] + '℃';
     rh.textContent = '相对湿度：' + json['HeWeather6'][0]['now']['hum'] + '%';
     currentCity.textContent = json['HeWeather6'][0]['basic']['location'];
+    weather.className = weatherClassObj[json['HeWeather6'][0]['now']['cond_code']];
+    switch (json['HeWeather6'][0]['now']['cond_code']) { // 判断是否白天夜晚图标不同
+        case '100':
+        case '103':
+        case '300':
+        case '301':
+        case '406':
+        case '407':
+            if(isDay()) {
+                weather.classList.add('day');
+            } else {
+                weather.classList.add('night');
+            }
+            break;
+        default:
+            return 0;
+    }
 }
 
-// jsonp
-function dataop(data) {
-    // return new Promise(function(resolve, reject) {
-    //     resolve(data);
-    // });
-    console.log(data);
-    loc = data;
+function updateWeather() {
+    getWeather().then(function (ajson) {
+        weatherRender(ajson);
+    });
+    getCurrentWeather().then(function (bjson) {
+        currentWeatherRender(bjson);
+    });
 }
+
+function isDay() {
+    let now = new Date();
+    let hours = now.getHours();
+    return hours >= 6 && hours <= 18
+}
+
+updateWeather();

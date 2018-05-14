@@ -7,13 +7,43 @@ body {
   margin: 0;
   flex-direction: column;
   align-items: center;
-  font-family: "Microsoft YaHei";
+  font-family: "Microsoft YaHei", sans-serif;
   --huge-size-font: 26px;
   background-size: cover;
   padding-top: 40px;
   position: relative;
   height: 100%;
   box-sizing: border-box; }
+  body button {
+    border: none;
+    background: #03A9F4;
+    padding: 8px 20px;
+    margin-bottom: 3px;
+    color: #fff;
+    cursor: pointer; }
+    body button:hover {
+      background: #0288D1; }
+  body a {
+    position: relative;
+    display: inline-block;
+    padding-bottom: 3px; }
+    body a:visited, body a:link {
+      color: #E91E63;
+      text-decoration: none; }
+    body a::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 3px;
+      width: 100%;
+      transform-origin: right bottom;
+      transform: scaleX(0);
+      transition: transform 0.25s linear;
+      border-bottom: 2px solid; }
+    body a:hover::before {
+      transform: scaleX(1);
+      transform-origin: left bottom; }
   body div.weather-display {
     display: flex;
     flex-direction: column; }
@@ -24,10 +54,137 @@ body {
       color: #fff;
       align-items: center; }
       body div.weather-display div.today .col {
-        width: 33%; }
+        width: 33%;
+        text-align: center; }
         body div.weather-display div.today .col:not(:first-child) {
           padding: 0 5px;
           box-sizing: border-box; }
+        body div.weather-display div.today .col #current-weather::before {
+          content: '';
+          width: 30px;
+          height: 30px;
+          display: inline-block;
+          vertical-align: middle; }
+        body div.weather-display div.today .col #current-weather.sunny::before {
+          background: url(weather_icon/100.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.sunny.night::before {
+          background: url(weather_icon/100n.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.cloudy::before {
+          background: url(weather_icon/101.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.few-clouds::before {
+          background: url(weather_icon/102.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.partly-cloudy::before {
+          background: url(weather_icon/103.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.partly-cloudy.night::before {
+          background: url(weather_icon/103n.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.overcast::before {
+          background: url(weather_icon/104.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.overcast.night::before {
+          background: url(weather_icon/104n.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.shower-rain::before {
+          background: url(weather_icon/300.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.heavy-shower-rain::before {
+          background: url(weather_icon/301.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.heavy-shower-rain.night::before {
+          background: url(weather_icon/301n.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.thundershower::before {
+          background: url(weather_icon/302.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.heavy-thunderstorm::before {
+          background: url(weather_icon/303.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.hail::before {
+          background: url(weather_icon/304.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.light-rain::before {
+          background: url(weather_icon/305.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.moderate-rain::before {
+          background: url(weather_icon/306.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.heavy-rain::before {
+          background: url(weather_icon/307.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.extreme-rain::before {
+          background: url(weather_icon/308.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.drizzle-rain::before {
+          background: url(weather_icon/309.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.storm::before {
+          background: url(weather_icon/310.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.heavy-storm::before {
+          background: url(weather_icon/311.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.severe-storm::before {
+          background: url(weather_icon/312.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.freezing-rain::before {
+          background: url(weather_icon/313.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.light-snow::before {
+          background: url(weather_icon/400.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.moderate-snow::before {
+          background: url(weather_icon/401.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.heavy-snow::before {
+          background: url(weather_icon/402.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.snowstorm::before {
+          background: url(weather_icon/403.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.sleet::before {
+          background: url(weather_icon/404.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.rain-and-snow::before {
+          background: url(weather_icon/405.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.shower-snow::before {
+          background: url(weather_icon/406.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.shower-snow.night::before {
+          background: url(weather_icon/406n.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.snow-flurry::before {
+          background: url(weather_icon/407.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.snow-flurry.night::before {
+          background: url(weather_icon/407n.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.mist::before {
+          background: url(weather_icon/500.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.foggy::before {
+          background: url(weather_icon/501.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.haze::before {
+          background: url(weather_icon/502.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.sand::before {
+          background: url(weather_icon/503.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.dust::before {
+          background: url(weather_icon/504.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.duststorm::before {
+          background: url(weather_icon/507.png);
+          background-size: cover; }
+        body div.weather-display div.today .col #current-weather.sandstorm::before {
+          background: url(weather_icon/508.png);
+          background-size: cover; }
       body div.weather-display div.today .current-display {
         font-size: var(--huge-size-font); }
         body div.weather-display div.today .current-display #current-tem {
@@ -55,7 +212,7 @@ body {
         body div.weather-display div.more-day div[class^='day']:not(:first-child):hover {
           background: #3949ab; }
   body div.bg {
-    background: url("weather.jpg");
+    background: url("weather_icon/weather.jpg");
     position: absolute;
     filter: blur(3px);
     left: 0;
@@ -73,6 +230,6 @@ body {
       border-color: #000;
       padding: 3px; }
   body p.attention {
-    color: #FF8A65; }
+    color: #64B5F6; }
 
 /*# sourceMappingURL=style.css.map */

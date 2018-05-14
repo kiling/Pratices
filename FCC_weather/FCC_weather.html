@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="Access-Control-Allow-Origin" content="https://kiling.github.io" />
     <title>FCC project -- Show the Local Weather</title>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -10,9 +9,8 @@
     <div class="bg"></div>
     <div>
         <h2 class="title">FCC project -- Show the Local Weather<a href="https://freecodecamp.cn/challenges/show-the-local-weather" target="_blank">...</a></h2>
-        <p>当前地区为：<span id="city"></span></p>
         <p>最后更新时间：<span id="last-update"></span></p>
-
+        <button id="refresh">刷新</button>
         <div class="weather-display">
             <div class="today" id="today">
                 <!--主要展示今天的天气-->
@@ -20,8 +18,7 @@
                     <p class="current-display"><span id="current-city"><!--当前地区--></span><span id="current-tem"><!--当前气温--></span></p>
                 </div>
                 <div class="col">
-                    <p id="tem-interval"><!--温度区间--></p>
-                    <p id="current-weather"><!--当前天气--></p>
+                    <span id="current-weather"><!--当前天气--></span>
                 </div>
                 <div class="col">
                     <p id="current-feel"><!--当前体感温度--></p>
@@ -70,7 +67,7 @@
         </div>
     </div>
     <p class="attention">Photo by Layton Diament on Unsplash</p>
-    <!--Photo by Layton Diament on Unsplash-->
+    <p class="attention">天气 API 使用的是 <a href="http://www.heweather.com/documents/api/s6">和风天气</a></p>
     <script src="fcc_weather.js"></script>
 </body>
 </html>
