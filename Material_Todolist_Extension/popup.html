@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-Do list</title>
+    <link rel="stylesheet" href="styles/material.min.css">
+    <link rel="stylesheet" href="styles/list_control.css">
+</head>
+<body>
+    <div id="main">
+        <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+            <div class="mdl-tabs__tab-bar">
+                <a href="#tab1" class="mdl-tabs__tab mdl-cell--6-col is-active">Undone</a>
+                <a href="#tab2" class="mdl-tabs__tab mdl-cell--6-col">Done</a>
+            </div>
+
+            <div class="mdl-tabs__panel is-active" id="tab1">
+                <!-- add new item-->
+                <div id="add-new-item">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored mdl-js-ripple-effect fl-right vertical-center" id="btn-add">
+                        Add
+                    </button>
+                    <div class="mdl-textfield mdl-js-textfield" id="add-new-item-text">
+                        <input class="mdl-textfield__input" type="text" id="input-text">
+                        <label class="mdl-textfield__label" for="input-text">Text...</label>
+                    </div>
+                </div>
+                <!-- undone tab-->
+                <ul class="mdl-list undone-list" id="undone-ul">
+
+                </ul>
+            </div>
+            <!-- done tab -->
+            <div class="mdl-tabs__panel" id="tab2">
+                <ul id="done-ul" class="mdl-list done-list">
+
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--script-->
+    <script src="scripts/material.min.js"></script>
+    <script src="scripts/listcontrol.js"></script>
+</body>
+</html>

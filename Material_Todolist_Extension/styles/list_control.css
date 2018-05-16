@@ -1,0 +1,80 @@
+.fl-right {
+  float: right; }
+
+.vertical-center {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%); }
+
+::-webkit-scrollbar {
+  width: 7px; }
+
+::-webkit-scrollbar-track {
+  background: #ddd; }
+
+::-webkit-scrollbar-thumb {
+  background: #666;
+  border-radius: 3px; }
+
+div#main {
+  width: 400px;
+  height: 500px;
+  border: 1px solid #000;
+  overflow: hidden; }
+  div#main ul.mdl-list {
+    margin: 0;
+    padding: 0;
+    height: 380px;
+    overflow-x: hidden;
+    overflow-y: scroll; }
+    div#main ul.mdl-list li {
+      user-select: none; }
+      div#main ul.mdl-list li img:hover {
+        cursor: pointer; }
+      div#main ul.mdl-list li:hover {
+        border-top: 1px solid #eee;
+        border-bottom: 1px solid #eee; }
+      div#main ul.mdl-list li.mdl-list__item {
+        padding: 0 16px; }
+      div#main ul.mdl-list li label {
+        outline: none; }
+        div#main ul.mdl-list li label:hover {
+          cursor: text; }
+        div#main ul.mdl-list li label input[type='text'] {
+          border: none;
+          background: #fff;
+          width: 100%; }
+          div#main ul.mdl-list li label input[type='text']:hover {
+            cursor: text; }
+    div#main ul.mdl-list.undone-list li {
+      opacity: 0;
+      transition: all 0.8s ease-in-out;
+      height: 0; }
+      div#main ul.mdl-list.undone-list li.show {
+        opacity: 1; }
+      div#main ul.mdl-list.undone-list li.delete {
+        width: 0; }
+      div#main ul.mdl-list.undone-list li input[type='text'] {
+        background: inherit; }
+    div#main ul.mdl-list.done-list {
+      height: 440px; }
+      div#main ul.mdl-list.done-list li label .done-item {
+        text-decoration: line-through; }
+      div#main ul.mdl-list.done-list li label:hover {
+        cursor: default; }
+      div#main ul.mdl-list.done-list li label span.done-item-text {
+        display: inline-block;
+        padding: 3px 0;
+        height: 100%;
+        width: 100%; }
+  div#main .mdl-tabs__tab-bar a {
+    user-select: none; }
+  div#main #add-new-item {
+    padding: 0 10px;
+    position: relative;
+    background-color: #eee; }
+    div#main #add-new-item #btn-add {
+      margin-bottom: 15px;
+      top: 30px; }
+
+/*# sourceMappingURL=list_control.css.map */
