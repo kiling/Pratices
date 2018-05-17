@@ -1,4 +1,4 @@
-##Chrome Extension: Material Design To-Do List
+###Chrome Extension: Material Design To-Do List
 
 实现：
 
@@ -10,7 +10,7 @@ JS 使用原生 ES5，未使用 jQuery 或者其他框架
 
 gif 预览：
 
-[gif 预览](https://i.loli.net/2018/05/16/5afc537068deb.gif)
+![gif 预览](https://i.loli.net/2018/05/16/5afc537068deb.gif)
 
 本地预览：
 
