@@ -69,12 +69,18 @@ $(".btn").click(function () {
        render('');
    } else if($(this).hasClass('sqrt')){ // 根号处理
        if(!op.length) {
+           if(!num1.length && result.text()) {
+               setNum1();
+           }
            num1 = sqrt(num1);
        } else {
            num2 = sqrt(num2);
        }
    } else if($(this).hasClass('square')){ // 平方处理
        if(!op.length) {
+           if(!num1.length && result.text()) {
+               setNum1();
+           }
            num1 = square(num1);
        } else {
            num2 = square(num2);
@@ -89,12 +95,18 @@ $(".btn").click(function () {
        }
    } else if($(this).hasClass('plus-minus')){ // +/- 处理
        if(!op.length) {
+           if(!num1.length && result.text()) {
+               setNum1();
+           }
            num1 = pmop(num1);
        } else {
            num2 = pmop(num2);
        }
    } else if($(this).hasClass('reciprocal')){ // 1/x 处理
        if(!op.length) {
+           if(!num1.length && result.text()) {
+               setNum1();
+           }
            num1 = reciprocal(num1);
        } else {
            num2 = reciprocal(num2);
@@ -166,6 +178,7 @@ function sqrt(arr) { // 根号处理
 }
 
 function square(arr) { // 平方处理
+
     if(!arr.length) {
         return [];
     }
@@ -199,4 +212,11 @@ function render(content) {
 function checkNumber() {
     let re = /^\-?\d*\.?\d*$/;
     return re.test(result.text());
+}
+
+function setNum1() { // 做完一次运算操作以后，点击根号/倒数/平方，把结果赋给 num1
+    if(!checkNumber()) {
+        return ;
+    }
+    num1 = result.text().split('');
 }
