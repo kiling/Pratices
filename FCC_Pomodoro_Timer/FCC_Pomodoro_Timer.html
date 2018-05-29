@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FCC project - Build a Pomodoro Clock</title>
+    <link rel="stylesheet" href="styles/pomodoro.css">
+    <link rel="stylesheet" href="styles/material.min.css">
+    <script src="scripts/material.min.js"></script>
+</head>
+<body>
+    <h3 class="title">FCC project: Build a Pomodoro Clock<a href="#" target="_blank">...</a></h3>
+    <!-- Session Title -->
+    <div class="line">
+        <p>Session length:<span id="session">...</span></p>
+    </div>
+    <!-- Session -->
+    <div class="line">
+        <div class="mdl-textfield mdl-js-textfield">
+            <input type="text" id="session-text" class="mdl-textfield__input">
+            <label class="mdl-textfield__label" for="session-text">Session Length</label>
+        </div>
+        <button id="btn-session" class="mdl-button mdl-button--primary mdl-button--raised mdl-js-ripple-effect mdl-js-button">Session Length</button>
+    </div>
+    <!-- Break Title -->
+    <div class="line">
+        <p>Break length:<span id="break"></span></p>
+    </div>
+    <!-- Break -->
+    <div class="line">
+        <div class="mdl-textfield mdl-js-textfield">
+            <input type="text" id="break-text" class="mdl-textfield__input">
+            <label class="mdl-textfield__label" for="break-text">Break Length</label>
+        </div>
+        <button id="btn-break" class="mdl-button mdl-button--primary mdl-button--raised mdl-js-ripple-effect mdl-js-button">Break Length</button>
+    </div>
+    <!-- button -->
+    <div class="line">
+        <button id="btn-start" class="mdl-button mdl-button--primary mdl-button--raised mdl-js-ripple-effect mdl-js-button">开始</button>
+        <button id="btn-pause" class="mdl-button mdl-button--primary mdl-button--raised mdl-js-ripple-effect mdl-js-button">暂停</button>
+        <button id="btn-halt" class="mdl-button mdl-button--primary mdl-button--raised mdl-js-ripple-effect mdl-js-button">停止</button>
+    </div>
+    <div class="clock-display line">
+        <div class="time-counting break" id="time-counting"></div>
+        <p id="state" class="rel"></p>
+        <p class="rel" id="left-time"></p>
+    </div>
+    <div id="mdl-toast" class="mdl-js-snackbar mdl-snackbar">
+        <div class="mdl-snackbar__text"></div>
+        <button class="mdl-snackbar__action" type="button"></button>
+    </div>
+    <!-- scipts -->
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+    <script src="scripts/pomodoro.js"></script>
+</body>
+</html>

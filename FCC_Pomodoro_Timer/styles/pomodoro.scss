@@ -1,0 +1,80 @@
+@charset "utf-8";
+body {
+  font-family: "Microsoft YaHei", sans-serif;
+  @media screen and (max-width: 900px) {
+    .line {
+      margin-left: 20%;
+    }
+  }
+  @media screen and (min-width: 901px) {
+    .line {
+      margin-left: 35%;
+    }
+  }
+  .title {
+    color: #1ab394;
+    text-align: center;
+  }
+  .line {
+    display: flex;
+    align-items: center;
+    .mdl-textfield {
+      input {
+        height: 36px;
+      }
+      label {
+        top: 36px;
+      }
+    }
+    button + button {
+      margin-left: 20px;
+    }
+  }
+  .clock-display {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    border: 2px solid #000;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    padding: 2px;
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+      border: 3px #fff solid;
+      border-radius: 50%;
+    }
+    .time-counting {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      &.session {
+        background: #6cf;
+      }
+      &.break {
+        background: #EC407A;
+      }
+    }
+    .rel {
+      position: relative;
+      font-size: 30px;
+    }
+    p {
+      line-height: 50px;
+    }
+  }
+  p {
+    margin: 10px 0;
+  }
+}
