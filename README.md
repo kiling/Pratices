@@ -15,4 +15,5 @@ List:
 | Chrome Extension: Material To-Do List      | [Readme](https://github.com/kiling/Pratices/tree/gh-pages/Material_Todolist_Extension) | 见 readme                                                    |
 | FCC project: Build a Wikipedia Viewer      | [Build a Wikipedia Viewer](https://freecodecamp.cn/challenges/build-a-wikipedia-viewer) | [Wiki Viewer 预览](https://kiling.github.io/Pratices/FCC_wikisearch/FCC_wikisearch.html) |
 | FCC project: Build a JavaScript Calculator | [Build a JavaScript Calculator](https://freecodecamp.cn/challenges/build-a-javascript-calculator) | [JavaScript Calculator 预览](https://kiling.github.io/Pratices/FCC_Calculator/FCC_Calculator.html) |
+| FCC project: Build a Pomodoro Clock        | [Build a Pomodoro Clock](https://freecodecamp.cn/challenges/build-a-pomodoro-clock) | [Pomodoro Clock预览](https://kiling.github.io/Pratices/FCC_Pomodoro_Timer/FCC_Pomodoro_Timer.html) |
 
