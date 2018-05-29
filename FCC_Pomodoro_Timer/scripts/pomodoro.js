@@ -3,8 +3,8 @@ let btnSession = $("#btn-session"),
 
 let timer = { // 计时器对象
     state: '',
-    session: 1,
-    break: 1,
+    session: 25,
+    break: 5,
     loop: true,
     sessionId: '',
     breakId: '',

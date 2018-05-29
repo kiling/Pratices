@@ -16,6 +16,10 @@ body {
       height: 36px; }
     body .line .mdl-textfield label {
       top: 36px; }
+    body .line .emphasized-color {
+      color: #4FC3F7;
+      margin-left: 1rem;
+      font-size: 20px; }
     body .line button + button {
       margin-left: 20px; }
   body .clock-display {
