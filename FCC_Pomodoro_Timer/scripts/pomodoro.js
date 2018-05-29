@@ -30,6 +30,9 @@ let timer = { // 计时器对象
         this.render(this.session, this.break);
     },
     startSession: function () {
+        if(timer.sessionId) {
+            clearInterval(timer.sessionId);
+        }
         let min, sec, z;
         let leftSec = this.session * 60; // 剩余秒数
         let fullSec = leftSec; // 总秒数
@@ -55,6 +58,9 @@ let timer = { // 计时器对象
         }, 1000)
     },
     startBreak: function () {
+        if(timer.breakId) {
+            clearInterval(timer.breakId);
+        }
         let min, sec, z;
         let leftSec = this.break * 60; // 剩余秒数
         let fullSec = leftSec;
@@ -80,8 +86,10 @@ let timer = { // 计时器对象
         }, 1000)
     },
     pause: function () {
-        $('#btn-pause').text(timer.isPaused ? '暂停' : '恢复');
-        timer.isPaused = !timer.isPaused;
+        if(timer.sessionId || timer.breakId) {
+            $('#btn-pause').text(timer.isPaused ? '暂停' : '恢复');
+            timer.isPaused = !timer.isPaused;
+        }
     },
     toggleState: function () { // 改变状态
         this.state = this.state == 'session' ? 'break' : 'session';
@@ -98,9 +106,12 @@ let timer = { // 计时器对象
         switch (timer.state) {
             case 'session':
                 clearInterval(timer.sessionId);
+                timer.reset();
                 break;
             case 'break':
                 clearInterval(timer.breakId);
+                timer.reset();
+                break;
         }
     },
     createTimeText: function (sec) {
@@ -115,6 +126,14 @@ let timer = { // 计时器对象
         let data = {message: text};
         let snackbarContainer = document.querySelector('#mdl-toast');
         snackbarContainer.MaterialSnackbar.showSnackbar(data);
+    },
+    reset: function () {
+        timer.breakId = '';
+        timer.sessionId = '';
+        timer.isPaused = false;
+        $('#btn-pause').text('暂停');
+        $('#state').text('');
+        $('#left-time').text('');
     }
 };
 
