@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FCC project - Build a Tic Tac Toe Game</title>
+    <link rel="stylesheet" href="styles/tic_tac_toe.css">
+    <script src="scripts/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+    <h2 class="title">FCC project - Build a Tic Tac Toe Game<a href="https://freecodecamp.cn/challenges/build-a-tic-tac-toe-game" target="_blank">...</a></h2>
+    <div class="main">
+        <div class="board">
+            <div class="grid" data-pos="0"></div>
+            <div class="grid" data-pos="1"></div>
+            <div class="grid" data-pos="2"></div>
+            <div class="grid" data-pos="3"></div>
+            <div class="grid" data-pos="4"></div>
+            <div class="grid" data-pos="5"></div>
+            <div class="grid" data-pos="6"></div>
+            <div class="grid" data-pos="7"></div>
+            <div class="grid" data-pos="8"></div>
+            <!--<div class="grid" data-pos="9"></div>-->
+        </div>
+        <div class="masking" id="masking">
+            <div class="choose-role fl-center">
+                <h3>选择你使用的角色</h3>
+                <div class="choose-btn-container">
+                    <button id="btn-choose-x">X</button>
+                    <button id="btn-choose-o">O</button>
+                </div>
+            </div>
+        </div>
+        <div class="masking" id="masking-2">
+            <div class="result-display fl-center">
+                <h3 id="result-text"></h3>
+                <button id="restart">重新开始</button>
+            </div>
+        </div>
+    </div>
+    <!-- scripts -->
+    <script src="scripts/tic.js"></script>
+</body>
+</html>

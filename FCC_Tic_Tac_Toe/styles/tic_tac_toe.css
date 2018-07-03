@@ -1,0 +1,88 @@
+body {
+  display: flex;
+  margin: 0;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh; }
+  body h2.title {
+    color: #1ab394;
+    margin-bottom: 100px; }
+    body h2.title a {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 3px; }
+      body h2.title a:visited, body h2.title a:link {
+        color: #E91E63;
+        text-decoration: none; }
+      body h2.title a::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 100%;
+        transform-origin: right bottom;
+        transform: scaleX(0);
+        transition: transform 0.25s linear;
+        border-bottom: 2px solid; }
+      body h2.title a:hover::before {
+        transform: scaleX(1);
+        transform-origin: left bottom; }
+  body .main {
+    background: #14bdac;
+    width: 40rem;
+    height: calc(40rem * 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative; }
+    body .main .board {
+      width: 16rem;
+      display: flex;
+      flex-wrap: wrap; }
+      body .main .board .grid {
+        width: 5rem;
+        height: 5rem;
+        font-size: 30px;
+        line-height: 5rem;
+        text-align: center;
+        color: #fff;
+        background: #14bdac; }
+        body .main .board .grid:nth-of-type(n+4) {
+          border-top: 0.5rem solid #0da192; }
+      body .main .board .grid:nth-of-type(3n+1) + .grid {
+        border-left: 0.5rem solid #0da192; }
+      body .main .board .grid:nth-of-type(3n+2) + .grid {
+        border-left: 0.5rem solid #0da192; }
+    body .main .masking {
+      display: none;
+      background: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      align-items: center;
+      justify-content: center;
+      user-select: none; }
+      body .main .masking .fl-center {
+        display: none;
+        width: 300px;
+        padding: 20px;
+        background: #eee;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center; }
+      body .main .masking .choose-role {
+        display: flex; }
+        body .main .masking .choose-role .choose-btn-container {
+          width: 80%;
+          display: flex;
+          justify-content: space-between;
+          padding: 10px 0; }
+    body .main button {
+      background: #fff;
+      border: 1px solid #14bdac;
+      padding: 10px 20px; }
+
+/*# sourceMappingURL=tic_tac_toe.css.map */

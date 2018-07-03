@@ -1,0 +1,105 @@
+body {
+  display: flex;
+  margin: 0;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  h2.title {
+    color: #1ab394;
+    margin-bottom: 100px;
+    a {
+      position: relative;
+      display: inline-block;
+      padding-bottom: 3px;
+      &:visited,
+      &:link {
+        color: #E91E63;
+        text-decoration: none;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 3px;
+        width: 100%;
+        transform-origin: right bottom;
+        transform: scaleX(0);
+        transition: transform 0.25s linear;
+        border-bottom: 2px solid;
+      }
+      &:hover::before {
+        transform: scaleX(1);
+        transform-origin: left bottom;
+      }
+    }
+  }
+  .main {
+    background: #14bdac;
+    $width: 40rem;
+    width: $width;
+    height: calc(#{$width} * 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    .board {
+      width: 16rem;
+      display: flex;
+      flex-wrap: wrap;
+      .grid {
+        width: 5rem;
+        height: 5rem;
+        font-size: 30px;
+        line-height: 5rem;
+        text-align: center;
+        color: #fff;
+        background: #14bdac;
+        &:nth-of-type(n+4) {
+          border-top: 0.5rem solid #0da192;
+        }
+      }
+      .grid:nth-of-type(3n+1) + .grid {
+        border-left: 0.5rem solid #0da192;
+      }
+      .grid:nth-of-type(3n+2) + .grid {
+        border-left: 0.5rem solid #0da192;
+      }
+    }
+    .masking {
+      display: none;
+      background: rgba(0, 0, 0, 0.3);
+      position: absolute;
+      left: 0;
+      right:0;
+      top: 0;
+      bottom: 0;
+      align-items: center;
+      justify-content: center;
+      user-select: none;
+      .fl-center {
+        display: none;
+        width: 300px;
+        padding: 20px;
+        background: #eee;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .choose-role {
+        display: flex;
+        .choose-btn-container {
+          width: 80%;
+          display: flex;
+          justify-content: space-between;
+          padding: 10px 0;
+        }
+      }
+    }
+    button {
+      background: #fff;
+      border: 1px solid #14bdac;
+      padding: 10px 20px;
+    }
+  }
+}
