@@ -17,5 +17,5 @@ List:
 | FCC project: Build a JavaScript Calculator | [Build a JavaScript Calculator](https://freecodecamp.cn/challenges/build-a-javascript-calculator) | [JavaScript Calculator 预览](https://kiling.github.io/Pratices/FCC_Calculator/FCC_Calculator.html) |
 | FCC project: Build a Pomodoro Clock        | [Build a Pomodoro Clock](https://freecodecamp.cn/challenges/build-a-pomodoro-clock) | [Pomodoro Clock预览](https://kiling.github.io/Pratices/FCC_Pomodoro_Timer/FCC_Pomodoro_Timer.html) |
 | FCC project: Build a Tic Tac Toe Game      | [Build a Tic Tac Toe Game](https://freecodecamp.cn/challenges/build-a-tic-tac-toe-game) | [Build a Tic Tac Toe Game预览](https://kiling.github.io/Pratices/FCC_Tic_Tac_Toe/FCC_Tic_Tac_Toe.html) |
-| FCC project: Build a Simon Game            | [Simon Game](https://freecodecamp.cn/challenges/build-a-simon-game) | [Build a Simon Game](https://kiling.github.io/Pratices/FCC_Simon_Game/FCC_Simon_Game.html) |
+| FCC project: Build a Simon Game            | [Simon Game](https://freecodecamp.cn/challenges/build-a-simon-game) | [Build a Simon Game预览](https://kiling.github.io/Pratices/FCC_Simon_Game/FCC_Simon_Game.html) |
 
