@@ -10,10 +10,18 @@
     <h2 class="title">FCC project - Simon Game<a href="https://freecodecamp.cn/challenges/build-a-simon-game" target="_blank">...</a></h2>
     <div class="main">
         <div class="main-panel">
-            <div class="color t-l" id="blue" data-colorid="0"></div>
-            <div class="color t-r" id="red" data-colorid="1"></div>
-            <div class="color b-l" id="yellow"  data-colorid="2"></div>
-            <div class="color b-r" id="green"  data-colorid="3"></div>
+            <div class="color t-l" id="blue" data-colorid="0">
+                <audio src="audio/1do.mp3" id="au0"></audio>
+            </div>
+            <div class="color t-r" id="red" data-colorid="1">
+                <audio src="audio/2re.mp3" id="au1"></audio>
+            </div>
+            <div class="color b-l" id="yellow"  data-colorid="2">
+                <audio src="audio/3mi.mp3" id="au2"></audio>
+            </div>
+            <div class="color b-r" id="green"  data-colorid="3">
+                <audio src="audio/4fa.mp3" id="au3"></audio>
+            </div>
             <div class="control-panel">
                 <h3 class="title">Simon</h3>
                 <div class="display">
@@ -46,7 +54,16 @@
             </div>
         </div>
     </div>
+    <button id="test">TEST</button>
     <!-- scripts -->
+    <script>
+        let audio1 = new Audio();
+        audio1.src = 'audio/1do.mp3';
+        let test = document.getElementById("test");
+        test.addEventListener('click', function () {
+            audio1.play();
+        })
+    </script>
     <script src="scripts/simon.js"></script>
 </body>
 </html>
