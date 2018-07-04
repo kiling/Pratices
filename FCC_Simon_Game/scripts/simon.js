@@ -11,14 +11,10 @@ let game = {
     isWin: false, // 给 strict mode 用, 当为 strict mode 且通关时, 置该值为 true, 给 end() 判断
     currentMoves: [], // 玩家在当前的 count 下点击色块的顺序
     objSound: { // data-colorid 对应声音
-        // 0: 'audio/1do.mp3',
-        // 1: 'audio/2re.mp3',
-        // 2: 'audio/3mi.mp3',
-        // 3: 'audio/4fa.mp3'
-        0: $("#au0"),
-        1: $("#au1"),
-        2: $("#au2"),
-        3: $("#au3")
+        0: 'audio/1do.mp3',
+        1: 'audio/2re.mp3',
+        2: 'audio/3mi.mp3',
+        3: 'audio/4fa.mp3'
     },
     objColorId: { // data-colorid 对应id
         0: '#blue',
@@ -66,6 +62,7 @@ let game = {
     check: function (colorid) { // 点击了色块以后, 判断当前点击色块是否与保存的 moves 的对应 value 符合
         let audio = new Audio();
         audio.src = game.objSound[colorid];
+        audio.load();
         audio.play();
         // 判断当前点击色块结果与 moves 对比
         if(this.currentMoves[this.currentMoves.length - 1] == this.moves[this.currentMoves.length - 1]) { // 当前色块与 moves 对应
@@ -130,12 +127,11 @@ let game = {
             this.unbindColor();
             $(".color").off("click", colorClickEvent);
             let i = 0, audio = new Audio();
-            audio.preload = 'auto';
             game.clr  = setInterval(function () {
                 $(game.objColorId[moves[i]]).toggleClass('bright');
-                // audio.src = game.objSound[moves[i]];
-                // audio.play();
-                game.objSound[moves[i]].play();
+                audio.src = game.objSound[moves[i]];
+                audio.load();
+                audio.play();
                 (function(i){
                     setTimeout(function () {
                         $(game.objColorId[moves[i]]).toggleClass('bright');
