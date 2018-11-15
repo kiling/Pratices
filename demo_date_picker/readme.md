@@ -8,7 +8,7 @@
 
 即可使用 date-picker 控件<br>
 
-
+预览: [date picker 预览](https://kiling.github.io/Pratices/demo_date_picker/date_picker.html)
 
 #### To-Do:
 
