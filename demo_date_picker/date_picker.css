@@ -1,0 +1,64 @@
+body {
+  position: relative;
+  height: 100vh;
+  margin: 0; }
+
+#calendar {
+  width: fit-content;
+  position: absolute; }
+  #calendar .op-div {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px #888 solid; }
+    #calendar .op-div > button {
+      width: 25%;
+      border: none;
+      box-sizing: border-box;
+      padding: 5px;
+      background: none; }
+      #calendar .op-div > button:hover {
+        cursor: pointer;
+        background: #ddd; }
+  #calendar.bd {
+    border: 1px solid #888; }
+  #calendar td:not(:empty) {
+    cursor: pointer;
+    text-align: center;
+    padding: 5px; }
+    #calendar td:not(:empty):not(.today):hover {
+      background: #eee; }
+  #calendar td.today {
+    background: lightgreen; }
+
+#calendar-table th {
+  text-align: center;
+  padding: 5px; }
+
+#yr-picker,
+#mn-picker {
+  width: 100%;
+  display: flex;
+  flex-direction: column; }
+  #yr-picker tr,
+  #mn-picker tr {
+    width: 100%;
+    height: 20%;
+    display: flex;
+    /*background: #eee;*/
+    justify-content: space-between; }
+  #yr-picker td,
+  #mn-picker td {
+    width: 33%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px; }
+    #yr-picker td:hover,
+    #mn-picker td:hover {
+      background: #eee; }
+
+#mn-picker tr {
+  height: 25%; }
+
+/*# sourceMappingURL=date_picker.css.mapmap */
