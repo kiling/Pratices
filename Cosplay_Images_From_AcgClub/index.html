@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cosplay Images From AcgClub</title>
+    <script src="js/jquery-3.1.1.min.js"></script>
+    <script src="js/lazyload.min.js"></script>
+    <link rel="stylesheet" href="css/simplelightbox.min.css">
+    <style>
+       .grp {
+           display: flex;
+           margin: 10px 0;
+           flex-direction: column;
+           border: 1px solid #333;
+           border-radius: 2px;
+           background: #eee;
+       }
+       .img-container {
+           display: flex;
+           flex-wrap: wrap;
+           
+       }
+       .grp-item {
+           width: 20%;
+           box-sizing: border-box;
+           padding: 5px;
+       }
+       .grp-title {
+           background: lightgrey;
+           margin: 0;
+           padding: 5px;
+       }
+       img {
+           width: 100%;
+           height: auto;
+       }
+       header {
+           color: #ee3f4d;
+           text-align: center;
+       }
+       footer {
+           background: #eee;
+           text-align: center;
+           font-size: 20px;
+           padding: 5px;
+       }
+       .footer-text {
+           color: #333;
+       }
+       footer a:link {
+            color: #ee3f4d;
+            text-decoration: none;
+       }
+       footer a:visited {
+            color: #ee3f4d;
+       }
+       footer a:hover {
+           text-decoration: underline;
+       }
+       .page-control :first-child {
+           float: left;
+       }
+       .page-control :last-child {
+           float: right;
+       }
+       .page-control {
+           overflow: hidden;
+           padding: 10px 0;
+       }
+       .btn {
+           background: #eee;
+           padding: 10px;
+           border: none;
+           cursor: pointer;
+       }
+    </style>
+    <script src="js/simple-lightbox.min.js"></script>
+</head>
+<body>
+    <header>Cosplay From AcgClub</header>
+    <div class="main">
+        
+    </div>
+    <div class="page-control">
+        <button id="prev" class="btn">上一页</button>
+        <button id="next" class="btn">下一页</button>
+    </div>
+    <footer>
+        <p><span class="footer-text">图片获取 API:</span> <a href="https://github.com/Rabtman/AcgClub/wiki/%E5%AE%85%E7%A4%BEAcgClub-API">宅社 AcgClub API</a></p>
+        <p><span class="footer-text">lightbox 插件:</span> <a href="http://simplelightbox.com/" target="_blank">simplelightbox</a></p>
+        <p><span class="footer-text">lazyload 插件:</span> <a href="https://github.com/jieyou/lazyload" target="_blank">lazyload</a></p>
+    </footer>
+    <!-- script -->
+    <script>
+        function getNewTemplate(obj) {
+            // 对 API 获取到的 20 组图片的每组创建 div 模板，并返回
+            let div = document.createElement('div');
+            div.classList.add('grp');
+            let title = document.createElement('p');
+            title.innerText = obj.title;
+            title.classList.add('grp-title');
+            div.appendChild(title);
+            let imgContainer = document.createElement('div');
+            imgContainer.classList.add('img-container');
+            for(let i = 0; i < obj.imgUrls.length; i++) {
+                let grpItem = document.createElement('div');
+                grpItem.classList.add('grp-item');
+                let a = document.createElement('a');
+                a.href = obj.imgUrls[i];
+                // a.dataset.featherlight = 'ajax';
+                let img = document.createElement('img');
+                // img.src = obj.imgUrls[i];
+                img.classList.add('lazy');
+                img.dataset.original = obj.imgUrls[i];
+                img.title = obj.imgUrls[i];
+                // img.dataset.lightbox = obj.imgUrls[i];
+                a.appendChild(img);
+                // grpItem.appendChild(img);
+                grpItem.appendChild(a);
+                imgContainer.appendChild(grpItem);
+            }
+            div.appendChild(imgContainer);
+            return div;
+        }
+        function getNewAllImgs(data) { // 使用 getNewTemplate 创建对应的 div 模板，每组模板包含标题、该组图片
+            for(let i = 0; i < data.length; i++) {
+                $('.main').append(getNewTemplate(data[i]));
+            }
+        }
+    </script>
+    <script src="js/page-control.js"></script>
+</body>
+</html>
