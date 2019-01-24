@@ -5,7 +5,7 @@
 window.onload = function () {
     console.log('test');
   let xhr = new XMLHttpRequest();
-  xhr.open('GET', 'https://v1.hitokoto.cn');
+  xhr.open('GET', 'https://v1.hitokoto.cn?c=a');
   xhr.onreadystatechange = function () {
       if(xhr.readyState == 4) {
           console.log(xhr.responseText);
