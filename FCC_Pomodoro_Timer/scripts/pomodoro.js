@@ -33,13 +33,15 @@ let timer = { // 计时器对象
         if(timer.sessionId) {
             clearInterval(timer.sessionId);
         }
+		timer.reset();
+		timer.createToast('working started');
         let min, sec, z;
         let leftSec = this.session * 60; // 剩余秒数
         let fullSec = leftSec; // 总秒数
         this.state = 'session';
         $('#state').text('session');
         $('#left-time').text(timer.createTimeText(leftSec));
-        $('#time-counting').css('height', 0).toggleClass('session').toggleClass('break');
+		$('#time-counting').css('height', 0).addClass('session').removeClass('break');	
         this.sessionId = setInterval(function () { // 1s 执行一次
             if(leftSec == 0) {
                 $('#left-time').text('');
@@ -61,13 +63,15 @@ let timer = { // 计时器对象
         if(timer.breakId) {
             clearInterval(timer.breakId);
         }
+		timer.reset();
+		timer.createToast('breaking started');
         let min, sec, z;
         let leftSec = this.break * 60; // 剩余秒数
         let fullSec = leftSec;
         this.state = 'break';
         $('#state').text('break');
         $('#left-time').text(timer.createTimeText(leftSec));
-        $('#time-counting').css('height', 0).toggleClass('session').toggleClass('break');
+		$('#time-counting').css('height', 0).removeClass('session').addClass('break');	
         this.breakId = setInterval(function () { // 1s 执行一次
             if(leftSec == 0) {
                 $('#left-tim').text('');
