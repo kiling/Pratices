@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:wb="http://open.weibo.com/wb">
 <head>
     <meta charset="UTF-8">
-    <title>FCC Project -- Build a Random Quote Machine</title>
+    <meta property="wb:webmaster" content="c720cd6846d04c27" />
+    <title>FCC Project -- Build a Random Quote Machine 一言kiling</title>
     <style>
         body {
             display: flex;
@@ -44,7 +45,25 @@
         a:visited {
             color: #3071a9;
         }
+        .share {
+            position: relative;
+        }
+        #wb-share {
+            position: absolute;
+            right: 0;
+            top: 0;
+        }
+        #share {
+            position: absolute;
+            right: 0;
+            top: 0;
+            display: inline-block;
+            height: 30px;
+            width: 65px;
+            opacity: 0;
+        }
     </style>
+    <script src="https://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
 </head>
 <body>
     <h3>FCC Project -- Build a Random Quote Machine<a href="https://freecodecamp.cn/challenges/build-a-random-quote-machine" target="_blank">...</a></h3>
@@ -54,6 +73,8 @@
         <div class="r">
             <cite id="author">&nbsp;</cite>
         </div>
+        <wb:share-button appkey="3675162588" addition="simple" type="button" picture_search="false" id="wb-share"></wb:share-button>
+        <a href="#" id="share" target="_blank">share</a>
     </blockquote>
     <p class="attention">注: 这里使用的是 <a href="https://hitokoto.cn/api" target="_blank">一言</a> API, 具体接口点击链接查看</p>
 
