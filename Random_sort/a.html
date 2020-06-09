@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<input type="text" id="ip">
+	<button id="btn-sort">排序</button>
+	<div id="output"></div>
+	<script type="text/javascript">
+		document.getElementById('btn-sort').addEventListener('click', () => {
+			let ip_text = document.getElementById('ip').value
+			let arr = []
+			arr = ip_text.split(' ')
+			arr.sort(() => Math.random() - 0.5)
+			let str = ''
+			let tmp = 0
+			for(let i in arr) {
+				tmp = +i + 1
+				str += arr[i] + '-->' + tmp + '\n'
+			}
+			document.getElementById('output').innerText = str
+		})
+	</script>
+</body>
+</html>
